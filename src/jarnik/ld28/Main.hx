@@ -21,7 +21,7 @@ class Main extends Gaxe
 	}
 	
 	private static function onLibLoaded():Void {
-		Gaxe.loadGaxe( new Main(), new Menu(), 480, 320 );
+		Gaxe.loadGaxe( new Main(), new Menu(), 320, 240 );
 	}
 
     public function new() {
@@ -41,7 +41,8 @@ class Main extends Gaxe
         //menu.init( { volume: 1, gamma: SaveGame.settings.gamma } );
 		//SoundLib.autoInit( SaveGame.settings.volume );
         
-        switchScene( TitleScene );
+        //switchScene( TitleScene );
+        switchScene( PlayScene );
     }
 	
 	override public function handleKey( e:KeyboardEvent ):Void {

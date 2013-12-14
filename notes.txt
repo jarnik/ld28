@@ -1,0 +1,37 @@
+Coin
+
+You see a busy street.
+You have one coin.
+What do you do with it?
+
+[game ends whenever you loose the coin out of your possession]
+
+BUY HOTDOG
+You ask the vendor for a hotdog.
+"What? This is not enough. I'll give you a sachet of ketchup though."
+You sit on a bench and suck on your ketchup.
+
+OFFER COIN TO HOBO
+You toss a coin to a hobo.
+He picks it up and puts it in his pocket.
+"But I got a job, you know."
+
+OFFER COIN TO ANIMAL SHELTER FUNDRAISER
+You offer the coin to a fundraiser.
+She looks up, puzzled.
+"Thank you. It's not much, but it counts."
+
+BRIBE POLICEMAN
+You cautiously hand over the coin to the police officer.
+"What am I supposed to do with that? Quit messing around, I'm on duty."
+
+THROW COIN INTO SEWERS
+You throw the coin into the sewer grate.
+.........
+<SPLISH>
+
+GIVE COIN TO BUSKER
+You throw a coin into busker's hat.
+He starts playing a slow, melancholic song.
+Everyone enjoys it.
+
