@@ -36,6 +36,7 @@ class Main extends Gaxe
         //GameLog.init( "passengers-03-tapdemo", "http://www.jarnik.com/amfphp/gateway.php" );
         //GameLog.start();
 		
+		Story.init();
 		Player.init();
 		
 		//Gaxe.head.addChild( Cursor.init( stage ) );
@@ -43,8 +44,8 @@ class Main extends Gaxe
         //menu.init( { volume: 1, gamma: SaveGame.settings.gamma } );
 		//SoundLib.autoInit( SaveGame.settings.volume );
         
-        //switchScene( TitleScene );
-        switchScene( StatScene );
+        switchScene( TitleScene );
+        //switchScene( StatScene );
         //switchScene( PlayScene );
     }
 	

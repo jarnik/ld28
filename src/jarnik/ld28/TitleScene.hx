@@ -29,6 +29,16 @@ class TitleScene extends Scene
 
     override private function reset():Void {				
 		log( "RESET!!! ");
+		
+		if ( Player.playerChoice == null ) {
+			screen.fetch("buttonStart.OK484").setLabel( "START" );
+			screen.fetch("title_gui").visible = true;
+			screen.fetch("title_gui_nocoin").visible = false;
+		} else {
+			screen.fetch("buttonStart.OK484").setLabel( "STATS" );
+			screen.fetch("title_gui").visible = false;
+			screen.fetch("title_gui_nocoin").visible = true;
+		}
     }
 
     override public function update( timeElapsed:Float ):Void {
@@ -38,7 +48,10 @@ class TitleScene extends Scene
     }
 	
 	private function onStartClicked( e:MouseEvent = null ):Void {
-		Gaxe.switchGlobalScene( PlayScene );
+		if ( Player.playerChoice == null )
+			Gaxe.switchGlobalScene( PlayScene );
+		else
+			Gaxe.switchGlobalScene( StatScene );
 	}
 	
 }

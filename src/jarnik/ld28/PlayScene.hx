@@ -43,12 +43,8 @@ class PlayScene extends Scene
 		
 		label.setLabel("");
 		
-		addActionPoint( "fundraiser", "OFFER COIN TO ANIMAL SHELTER FUNDRAISER", "You offer the coin to a fundraiser.\nShe looks up, puzzled.\n\"Thank you. It's not much, but it counts.\"" );
-		addActionPoint( "hobo", "OFFER COIN TO HOBO", "You toss a coin to a hobo.\nHe picks it up and puts it in his pocket.\n\"But I got a job, you know.\"" );
-		addActionPoint( "hotdog", "BUY HOTDOG", "You ask the vendor for a hotdog.\n\"What? This is not enough. I'll give you a sachet of ketchup though.\"\nYou sit on a bench and suck on your ketchup." );
-		addActionPoint( "sewer", "THROW COIN INTO SEWERS", "You throw the coin into the sewer grate.\n.........\n<SPLISH>" );
-		addActionPoint( "busker", "GIVE COIN TO BUSKER", "You throw a coin into busker's hat.\nHe starts playing a slow, melancholic song.\nEveryone enjoys it." );
-		addActionPoint( "policeman", "BRIBE POLICEMAN", "You cautiously hand over the coin to the police officer.\n\"What am I supposed to do with that? Quit messing around, I'm on duty.\"" );
+		for ( p in Story.points )
+			addActionPoint( p.id, p.caption, p.ending );
 		
 		var popup:RenderGroupStates = cast( screen.fetch("popup"), RenderGroupStates );
 		popup.switchState("text", true );
@@ -110,7 +106,8 @@ class PlayScene extends Scene
 	}
 	
 	private function onStats():Void {
-		Gaxe.switchGlobalScene( TitleScene );
+		StatScene.pendingPlayerChoice = selectedPoint.id;
+		Gaxe.switchGlobalScene( StatScene );
 	}
 	
 	private function onPointFocused( p:ActionPoint ):Void {
