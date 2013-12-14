@@ -31,6 +31,7 @@ class Menu extends Sprite implements IMenu
     private function createMenu():Void {
 		screen = Render.renderGroupStates( "title", null, "pause" );
 		addChild( screen );
+		visible = false;
     }
 
     public function init( params:Dynamic ):Void {

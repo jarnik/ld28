@@ -41,8 +41,8 @@ class Main extends Gaxe
         //menu.init( { volume: 1, gamma: SaveGame.settings.gamma } );
 		//SoundLib.autoInit( SaveGame.settings.volume );
         
-        //switchScene( TitleScene );
-        switchScene( PlayScene );
+        switchScene( TitleScene );
+        //switchScene( PlayScene );
     }
 	
 	override public function handleKey( e:KeyboardEvent ):Void {

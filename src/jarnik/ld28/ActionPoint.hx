@@ -35,6 +35,10 @@ class ActionPoint {
 		marker.switchState("normal", true);
 	}
 	
+	public function hide():Void {
+		marker.visible = false;
+	}
+	
 	private function onMouseOver( e:MouseEvent = null ):Void {
 		marker.switchState("focused", true);
 		onFocused.dispatch( this );
