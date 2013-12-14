@@ -1,5 +1,6 @@
 package jarnik.ld28;
 import gaxe.Scene;
+import jarnik.ld28.Story.ACTION_POINT_INFO;
 import nme.events.MouseEvent;
 import pug.render.RenderGroupStates;
 import pug.render.Render;
@@ -44,19 +45,21 @@ class PlayScene extends Scene
 		label.setLabel("");
 		
 		for ( p in Story.points )
-			addActionPoint( p.id, p.caption, p.ending );
+			addActionPoint( p );
 		
 		var popup:RenderGroupStates = cast( screen.fetch("popup"), RenderGroupStates );
 		popup.switchState("text", true );
 		popup.fetch("buttonOK").onClick( onContinueClicked );
 		popup.visible = false;
 		
+		screen.fetch("stage").play( true );
+		
 		switchState( PLAY_INTRO );		
 	}
 	
-	private function addActionPoint( id:String, caption:String, ending:String ):ActionPoint {
-		var marker:RenderGroupStates = cast( screen.fetch(id), RenderGroupStates );
-		var p:ActionPoint = new ActionPoint( marker, id, caption, ending );
+	private function addActionPoint( info:ACTION_POINT_INFO ):ActionPoint {
+		var marker:RenderGroupStates = cast( screen.fetch(info.id), RenderGroupStates );
+		var p:ActionPoint = new ActionPoint( marker, info );
 		actionPoints.push( p );
 		p.onFocused.bind( onPointFocused );
 		p.onUnfocused.bind( onPointUnfocused );
@@ -70,9 +73,11 @@ class PlayScene extends Scene
 			case PLAY_INTRO:
 				showPopup( "You got only one coin.", "What are you going to do with it?", onStartClicked );
 			case PLAY_SELECT:
+				for ( p in actionPoints )
+					p.show();	
 				screen.fetch("popup").visible = false;
 			case PLAY_ENDTEXT:
-				showPopup( selectedPoint.caption, selectedPoint.ending, onStats );
+				showPopup( selectedPoint.info.caption, selectedPoint.info.ending, onStats );
 		}
 		return true;
 	}
@@ -80,7 +85,7 @@ class PlayScene extends Scene
 	override public function update(elapsed:Float):Void 
 	{
 		super.update(elapsed);
-		
+		screen.fetch("stage").update( elapsed );
 		switch ( cast( state, PlaySceneState ) ) {
 			case PLAY_INTRO:
 			case PLAY_SELECT:
@@ -106,22 +111,26 @@ class PlayScene extends Scene
 	}
 	
 	private function onStats():Void {
-		StatScene.pendingPlayerChoice = selectedPoint.id;
+		if ( !selectedPoint.info.end ) {
+			switchState( PLAY_SELECT );
+			return;
+		}
+		StatScene.pendingPlayerChoice = selectedPoint.info.id;
 		Gaxe.switchGlobalScene( StatScene );
 	}
 	
 	private function onPointFocused( p:ActionPoint ):Void {
-		log( "focused " + p.id );
-		label.setLabel( p.caption );
+		log( "focused " + p.info.id );
+		label.setLabel( p.info.caption );
 	}
 	
 	private function onPointUnfocused( p:ActionPoint ):Void {
-		log( "unfocused " + p.id );
+		log( "unfocused " + p.info.id );
 		label.setLabel( "" );
 	}
 	
 	private function onPointClicked( p:ActionPoint ):Void {
-		log( "CLICKED " + p.id );
+		log( "CLICKED " + p.info.id );
 		selectedPoint = p;
 		for ( p in actionPoints )
 			p.hide();

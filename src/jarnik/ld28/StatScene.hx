@@ -46,6 +46,7 @@ class StatScene extends Scene
 		for ( p in Story.points )
 			if ( Player.playerChoice == p.id )
 				screen.fetch("title").setLabel( p.caption );
+		screen.fetch("stage").play( true );
 	}
 	
 	override private function handleSwitchState(id:Dynamic):Bool 
@@ -82,7 +83,7 @@ class StatScene extends Scene
 	override public function update(elapsed:Float):Void 
 	{
 		super.update(elapsed);
-		
+		screen.fetch("stage").update( elapsed );
 		switch ( cast( state, StatSceneState ) ) {
 			case STATS_LOADING:
 			case STATS_SHOW:

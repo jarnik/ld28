@@ -3,6 +3,7 @@ package jarnik.ld28;
 import hsl.haxe.DirectSignaler;
 import nme.events.MouseEvent;
 import pug.render.RenderGroupStates;
+import jarnik.ld28.Story;
 
 /**
  * ...
@@ -15,15 +16,11 @@ class ActionPoint {
 	public var onClicked:DirectSignaler<ActionPoint>;
 	
 	private var marker:RenderGroupStates;
-	public var id:String;
-	public var caption:String;
-	public var ending:String;
+	public var info:ACTION_POINT_INFO;
 	
-	public function new( marker:RenderGroupStates, id:String, caption:String, ending:String ) {
+	public function new( marker:RenderGroupStates, info:ACTION_POINT_INFO ) {
 		this.marker = marker;
-		this.id = id;
-		this.caption = caption;
-		this.ending = ending;
+		this.info = info;
 		onFocused = new DirectSignaler(this);
 		onUnfocused = new DirectSignaler(this);
 		onClicked = new DirectSignaler(this);
@@ -37,6 +34,11 @@ class ActionPoint {
 	
 	public function hide():Void {
 		marker.visible = false;
+	}
+	
+	public function show():Void {
+		marker.visible = true;
+		marker.switchState("normal", true);
 	}
 	
 	private function onMouseOver( e:MouseEvent = null ):Void {

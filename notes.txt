@@ -21,9 +21,10 @@ You offer the coin to a fundraiser.
 She looks up, puzzled.
 "Thank you. It's not much, but it counts."
 
-BRIBE POLICEMAN
-You cautiously hand over the coin to the police officer.
-"What am I supposed to do with that? Quit messing around, I'm on duty."
+SCRATCH A CAR
+You look around, but everyone seems busy.
+You walk around a car, scratching its shiny coating. 
+The coin is damaged, you throw it away.
 
 THROW COIN INTO SEWERS
 You throw the coin into the sewer grate.

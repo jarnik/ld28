@@ -39,11 +39,13 @@ class TitleScene extends Scene
 			screen.fetch("title_gui").visible = false;
 			screen.fetch("title_gui_nocoin").visible = true;
 		}
+		screen.fetch("stage").play( true );
     }
 
     override public function update( timeElapsed:Float ):Void {
 		//screen.update( timeElapsed );
 		super.update( timeElapsed );
+		screen.fetch("stage").update( timeElapsed );
 		log( "update!!! ");
     }
 	
