@@ -6,6 +6,7 @@ import pug.model.Library;
 import nme.events.KeyboardEvent;
 import nme.ui.Keyboard;
 import gaxe.Gaxe;
+import gaxe.SoundLib;
 
 class Main extends Gaxe 
 {
@@ -42,7 +43,7 @@ class Main extends Gaxe
 		//Gaxe.head.addChild( Cursor.init( stage ) );
 
         //menu.init( { volume: 1, gamma: SaveGame.settings.gamma } );
-		//SoundLib.autoInit( SaveGame.settings.volume );
+		SoundLib.autoInit( 1 );
         
         switchScene( TitleScene );
         //switchScene( StatScene );

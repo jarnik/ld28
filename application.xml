@@ -25,6 +25,7 @@
 	<!-- assets -->
 	<assets path="assets/fonts" type="font" include="*" />
     <assets path="assets/pugs" include="ld28.pug" />
+    <assets path="assets/sfx" include="*.mp3" />
 	
 	<!-- optimize output
 	<haxeflag name="-dce full" /> -->

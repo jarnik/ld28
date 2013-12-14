@@ -6,6 +6,7 @@ import nme.events.MouseEvent;
 import pug.render.Render;
 import pug.render.RenderGroupStates;
 import pug.render.RenderImage;
+import gaxe.SoundLib;
 
 class TitleScene extends Scene 
 {
@@ -23,6 +24,8 @@ class TitleScene extends Scene
 
 		screen.fetch("buttonStart.bgr").onClick( onStartClicked );
 		screen.fetch("buttonStart.OK484").mouseEnabled = false;
+		
+		SoundLib.playMusic("assets/sfx/noise");
     }
 	
 	override public function allowMenu():Bool { return false; }
@@ -50,6 +53,7 @@ class TitleScene extends Scene
     }
 	
 	private function onStartClicked( e:MouseEvent = null ):Void {
+		SoundLib.play("assets/sfx/cink");
 		if ( Player.playerChoice == null )
 			Gaxe.switchGlobalScene( PlayScene );
 		else

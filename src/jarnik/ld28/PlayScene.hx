@@ -6,6 +6,7 @@ import pug.render.RenderGroupStates;
 import pug.render.Render;
 import pug.render.RenderText;
 import gaxe.Gaxe;
+import gaxe.SoundLib;
 
 enum PlaySceneState {
     PLAY_INTRO;
@@ -77,6 +78,7 @@ class PlayScene extends Scene
 					p.show();	
 				screen.fetch("popup").visible = false;
 			case PLAY_ENDTEXT:
+				SoundLib.play("assets/sfx/"+selectedPoint.info.sfx);
 				showPopup( selectedPoint.info.caption, selectedPoint.info.ending, onStats );
 		}
 		return true;
@@ -103,10 +105,12 @@ class PlayScene extends Scene
 	}
 	
 	private function onStartClicked():Void {
+		SoundLib.play("assets/sfx/cink");
 		switchState( PLAY_SELECT );
 	}
 	
 	private function onContinueClicked( e:MouseEvent = null ):Void {
+		SoundLib.play("assets/sfx/cink");
 		onContinueHandler();
 	}
 	
