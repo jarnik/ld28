@@ -36,12 +36,15 @@ class Main extends Gaxe
         //GameLog.init( "passengers-03-tapdemo", "http://www.jarnik.com/amfphp/gateway.php" );
         //GameLog.start();
 		
+		Player.init();
+		
 		//Gaxe.head.addChild( Cursor.init( stage ) );
 
         //menu.init( { volume: 1, gamma: SaveGame.settings.gamma } );
 		//SoundLib.autoInit( SaveGame.settings.volume );
         
-        switchScene( TitleScene );
+        //switchScene( TitleScene );
+        switchScene( StatScene );
         //switchScene( PlayScene );
     }
 	
