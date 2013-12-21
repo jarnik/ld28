@@ -1,0 +1,24 @@
+-main ApplicationMain 
+-lib openfl
+-lib openfl-compatibility
+-lib openfl
+-lib actuate
+-lib svg
+-lib hsl-pico-1
+-lib format
+-cp src
+-cp C:\HaxeToolkit\haxe/lib\openfl/1,0,4/
+-cp C:\HaxeToolkit\haxe/lib\openfl-compatibility/1,0,1/
+-D tools=1
+-D openfl_ver=1.0.4
+-D nme
+-D openfl
+-D nme_install_tool
+-D web
+-swf-version 11
+-swf bin/flash/bin/ld28.swf
+-swf-header 640:480:60:000000
+-cp bin/flash/haxe
+#--remap nme:flash
+--no-inline
+-debug
